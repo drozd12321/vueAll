@@ -1,5 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MainLayout from "./layout/MainLayout.vue";
+import AuthLayout from "./layout/AuthLayout.vue";
+</script>
 
-<template>Drozdov</template>
+<template>
+  <MainLayout />
+</template>
 
 <style scoped></style>
