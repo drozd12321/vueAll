@@ -1,22 +1,81 @@
 <template>
-  <form class="glavn">
+  <form class="glavn" @submit.prevent="onSubmit">
     <div class="inf">
       <h2>Войти в систему</h2>
       <div class="inpdiv">
         <label class="label" for="email">Email:</label>
-        <input class="input" type="email" id="email" />
+
+        <input
+          :class="['input', { invalid: eError }]"
+          type="email"
+          id="email"
+          v-model="email"
+          @blur="eBlur"
+        />
       </div>
 
       <div class="inpdiv">
         <label class="label" for="email">Password:</label>
-        <input class="input" type="password" id="password" />
+        <input
+          :class="['input', { invalid: pError }]"
+          type="password"
+          id="password"
+          v-model="password"
+          @blur="pBlur"
+        />
       </div>
-      <button>Войти</button>
+
+      <button type="submit" :disabled="isSubmitting || istomanyAttemots">
+        Войти
+      </button>
+      <div class="span" v-if="istomanyAttemots">Слишком часто</div>
     </div>
   </form>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { watch } from "vue";
+import { useField, useForm } from "vee-validate";
+import { computed } from "vue";
+import * as yup from "yup";
+const {
+  value: email,
+  errorMessage: eError,
+  handleBlur: eBlur,
+} = useField(
+  "email",
+  yup
+    .string()
+    .trim()
+    .required("Введите email")
+    .email("Введите корректный email")
+);
+const {
+  value: password,
+  errorMessage: pError,
+  handleBlur: pBlur,
+} = useField(
+  "password",
+  yup.string().trim().required("Введите пароль").min(6, "Минимум 6 ")
+);
+const { handleSubmit, isSubmitting, submitCount } = useForm();
+const onSubmit = handleSubmit((val) => {
+  console.log(val);
+  email.value = "";
+  password.value = "";
+});
+const istomanyAttemots = computed(() => submitCount.value >= 3);
+watch(istomanyAttemots, (val) => {
+  if (val) {
+    setTimeout(() => {
+      submitCount.value = 0;
+    }, 5000);
+  }
+});
+</script>
 <style scoped>
+.span {
+  color: red;
+}
 button {
   padding: 7px;
   font-size: 15px;
@@ -29,6 +88,11 @@ button {
 }
 button:hover {
   background-color: rgba(85, 83, 83, 0.61);
+}
+button:disabled {
+  cursor: not-allowed;
+  color: red;
+  border: 3px solid rgba(252, 2, 2, 0.911);
 }
 .inpdiv {
   display: grid;
@@ -45,6 +109,9 @@ button:hover {
 .input {
   grid-area: input;
   width: 100%;
+}
+.input.invalid {
+  border: 3px solid red;
 }
 input {
   padding: 6px;

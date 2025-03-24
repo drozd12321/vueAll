@@ -1,0 +1,13 @@
+import "/src/assets/main.css?t=1742836413695";
+import { createApp } from "/node_modules/.vite/deps/vue.js?v=cca18951";
+import App from "/src/App.vue";
+import router from "/src/router/index.ts?t=1742839239674";
+import MainLayout from "/src/layout/MainLayout.vue?t=1742836214156";
+import AuthLayout from "/src/layout/AuthLayout.vue";
+const app = createApp(App);
+app.component("MainLayout", MainLayout);
+app.component("AuthLayout", AuthLayout);
+app.use(router);
+app.mount("#app");
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4udHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFwiLi9hc3NldHMvbWFpbi5jc3NcIjtcblxuaW1wb3J0IHsgY3JlYXRlQXBwIH0gZnJvbSBcInZ1ZVwiO1xuaW1wb3J0IEFwcCBmcm9tIFwiLi9BcHAudnVlXCI7XG5pbXBvcnQgcm91dGVyIGZyb20gXCIuL3JvdXRlclwiO1xuaW1wb3J0IE1haW5MYXlvdXQgZnJvbSBcIi4vbGF5b3V0L01haW5MYXlvdXQudnVlXCI7XG5pbXBvcnQgQXV0aExheW91dCBmcm9tIFwiLi9sYXlvdXQvQXV0aExheW91dC52dWVcIjtcblxuY29uc3QgYXBwID0gY3JlYXRlQXBwKEFwcCk7XG5hcHAuY29tcG9uZW50KFwiTWFpbkxheW91dFwiLCBNYWluTGF5b3V0KTtcbmFwcC5jb21wb25lbnQoXCJBdXRoTGF5b3V0XCIsIEF1dGhMYXlvdXQpO1xuYXBwLnVzZShyb3V0ZXIpO1xuXG5hcHAubW91bnQoXCIjYXBwXCIpO1xuIl0sIm1hcHBpbmdzIjoiQUFBQSxPQUFPO0FBRVAsU0FBUyxpQkFBaUI7QUFDMUIsT0FBTyxTQUFTO0FBQ2hCLE9BQU8sWUFBWTtBQUNuQixPQUFPLGdCQUFnQjtBQUN2QixPQUFPLGdCQUFnQjtBQUV2QixNQUFNLE1BQU0sVUFBVSxHQUFHO0FBQ3pCLElBQUksVUFBVSxjQUFjLFVBQVU7QUFDdEMsSUFBSSxVQUFVLGNBQWMsVUFBVTtBQUN0QyxJQUFJLElBQUksTUFBTTtBQUVkLElBQUksTUFBTSxNQUFNOyIsIm5hbWVzIjpbXX0=

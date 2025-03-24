@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:5173/#/auth -->
+<html lang="" style="--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module" src="./Vite App_files/virtual_vue-devtools-path_overlay.js"></script>
+    <script type="module" src="./Vite App_files/virtual_vue-inspector-path_load.js"></script>
+
+    <script type="module" src="./Vite App_files/client"></script>
+
+    
+    <link rel="icon" href="http://localhost:5173/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+  <link rel="stylesheet" href="./Vite App_files/devtools-overlay.css"><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/node_modules/vite-plugin-vue-inspector/src/Overlay.vue?vue&amp;type=style&amp;index=0&amp;scoped=31d1379f&amp;lang.css">
+.vue-inspector-container[data-v-31d1379f] {
+  cursor: pointer;
+  position: fixed;
+  text-align: center;
+  z-index: 2147483647;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.vue-inspector-card[data-v-31d1379f] {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px 8px;
+  border-radius: 4px;
+  text-align: left;
+  color:#e9e9e9;
+  font-size: 14px;
+  background-color:#42b883;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+.vue-inspector-card .tip[data-v-31d1379f] {
+  font-size: 11px;
+  opacity: 0.7;
+}
+.vue-inspector-banner[data-v-31d1379f] {
+  display: none;
+  position: absolute;
+  margin: 0;
+  width: 260px;
+  text-decoration: none;
+}
+.vue-inspector-container:hover .vue-inspector-banner[data-v-31d1379f] {
+  display: block;
+}
+.vue-inspector-container--disabled:hover .vue-inspector-banner[data-v-31d1379f] {
+  display: none;
+}
+.vue-inspector-floats[data-v-31d1379f] {
+  z-index: 2147483647;
+  position: fixed;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.vue-inspector-size-indicator[data-v-31d1379f] {
+  z-index: 2147483646;
+  position: fixed;
+  background-color:#42b88325;
+  border: 1px solid #42b88350;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.vue-inspector-animated[data-v-31d1379f] {
+  transition: all 0.1s ease-in;
+}
+@media (prefers-reduced-motion) {
+.vue-inspector-animated[data-v-31d1379f] {
+    transition: none !important;
+}
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/assets/main.css">body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-image: url("image.png"); */
+  background-color: rgba(0, 225, 255, 0.5);
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/views/Home.vue?vue&amp;type=style&amp;index=0&amp;scoped=2dc54a20&amp;lang.css">
+.glavn[data-v-2dc54a20] {
+  background-color: white;
+  margin: 1rem auto;
+  width: 80%;
+  padding: 10px;
+  border-radius: 6px;
+}
+.inf[data-v-2dc54a20] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/views/AppHelp.vue?vue&amp;type=style&amp;index=0&amp;scoped=ad617e0b&amp;lang.css">
+.glavn[data-v-ad617e0b] {
+  background-color: white;
+  margin: 1rem auto;
+  width: 80%;
+  padding: 10px;
+  border-radius: 6px;
+}
+.inf[data-v-ad617e0b] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/views/AppMsg.vue?vue&amp;type=style&amp;index=0&amp;scoped=79eb9d8c&amp;lang.css">
+.glavn[data-v-79eb9d8c] {
+  background-color: white;
+  margin: 1rem auto;
+  width: 80%;
+  padding: 10px;
+  border-radius: 6px;
+}
+.inf[data-v-79eb9d8c] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/views/Auth.vue?vue&amp;type=style&amp;index=0&amp;scoped=2e008874&amp;lang.css">
+button[data-v-2e008874] {
+  padding: 7px;
+  font-size: 15px;
+  width: 100px;
+  border: 3px solid rgba(255, 255, 255, 0.911);
+  background-color: transparent;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+button[data-v-2e008874]:hover {
+  background-color: rgba(85, 83, 83, 0.61);
+}
+button[data-v-2e008874]:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+.inpdiv[data-v-2e008874] {
+  display: grid;
+  grid-template-areas: "label input";
+  width: 400px;
+  font-size: 18px;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.label[data-v-2e008874] {
+  grid-area: label;
+  width: 20px;
+}
+.input[data-v-2e008874] {
+  grid-area: input;
+  width: 100%;
+}
+.input..invalid[data-v-2e008874] {
+  border: 3px solid red;
+}
+input[data-v-2e008874] {
+  padding: 6px;
+  border-radius: 6px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 14px;
+}
+.glavn[data-v-2e008874] {
+  border: 3px solid rgba(0, 225, 255, 0.63);
+  background-color: rgb(36, 38, 59);
+  margin: 1rem auto;
+  width: 80%;
+  padding: 10px;
+  border-radius: 6px;
+  color: rgb(255, 252, 252);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.inf[data-v-2e008874] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 5px 10px rgba(247, 245, 245, 0.2);
+  width: 600px;
+  height: 300px;
+  border-radius: 3px;
+  border: 3px solid rgba(0, 225, 255, 0.63);
+}
+h2[data-v-2e008874] {
+  background-color: transparent;
+  padding: 7px;
+  border-radius: 7px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5);
+}
+</style><style type="text/css" data-vite-dev-id="/home/drozd/Общедоступные/front/vueAll/src/components/TheNav.vue?vue&amp;type=style&amp;index=0&amp;scoped=051b0db4&amp;lang.css">
+.navbar[data-v-051b0db4] {
+  display: grid;
+  grid-template-areas: "h3 cont";
+  align-items: center;
+  font-size: 18px;
+  color: rgb(5, 5, 5);
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+}
+.cont[data-v-051b0db4] {
+  grid-area: cont;
+  display: grid;
+  grid-template-areas: "one two three foo";
+  justify-content: space-around;
+}
+.one[data-v-051b0db4] {
+  grid-area: one;
+}
+.two[data-v-051b0db4] {
+  grid-area: two;
+}
+.three[data-v-051b0db4] {
+  grid-area: three;
+}
+.three[data-v-051b0db4] {
+  grid-area: three;
+}
+.foo[data-v-051b0db4] {
+  grid-area: foo;
+}
+.h3[data-v-051b0db4] {
+  grid-area: h3;
+  font-size: 22px;
+}
+a[data-v-051b0db4] {
+  text-decoration: none;
+  color: rgb(5, 5, 5);
+}
+.active[data-v-051b0db4] {
+  border-bottom: 3px solid black;
+  padding: 4px;
+}
+</style></head>
+  <body>
+    <div id="app" data-v-app=""><form data-v-2e008874="" class="glavn"><div data-v-2e008874="" class="inf"><h2 data-v-2e008874="">Войти в систему</h2><div data-v-2e008874="" class="inpdiv"><label data-v-2e008874="" class="label" for="email">Email:</label><input data-v-2e008874="" class="input" type="email" id="email"></div><div data-v-2e008874="" class="inpdiv"><label data-v-2e008874="" class="label" for="email">Password:</label><input data-v-2e008874="" class="input invalid" type="password" id="password"></div><button data-v-2e008874="" type="submit">Войти</button></div></form></div>
+    <script type="module" src="./Vite App_files/main.ts"></script>
+  
+
+<script src="./Vite App_files/devtools-overlay.mjs" type="module"></script><div id="vue-inspector-container" data-v-app=""><div data-v-31d1379f="" data-v-inspector-ignore="true"><!--v-if--><!-- Overlay --><!--v-if--></div></div><div id="__vue-devtools-container__" data-v-inspector-ignore="true" data-v-app=""><div data-v-640ec535="" class="vue-devtools__anchor vue-devtools__anchor--hide" style="left: 960px; top: 636px; --vue-devtools-widget-bg: #ffffff; --vue-devtools-widget-fg: #111; --vue-devtools-widget-border: #efefef; --vue-devtools-widget-shadow: rgba(128,128,128,0.1);"><div data-v-640ec535="" class="vue-devtools__anchor--glowing" style=""></div><div data-v-640ec535="" class="vue-devtools__panel" style="transform: translate(-50%, calc(-50% + 15px)); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"><div data-v-640ec535="" class="vue-devtools__anchor-btn panel-entry-btn" title="Toggle Vue DevTools" aria-label="Toggle devtools panel" style="filter: saturate(0);"><svg data-v-640ec535="" viewBox="0 0 256 198" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-640ec535="" fill="#41B883" d="M204.8 0H256L128 220.8L0 0h97.92L128 51.2L157.44 0h47.36Z"></path><path data-v-640ec535="" fill="#41B883" d="m0 0l128 220.8L256 0h-51.2L128 132.48L50.56 0H0Z"></path><path data-v-640ec535="" fill="#35495E" d="M50.56 0L128 133.12L204.8 0h-47.36L128 51.2L97.92 0H50.56Z"></path></svg></div><div data-v-640ec535="" class="vue-devtools__panel-content vue-devtools__panel-divider"></div><div data-v-640ec535="" class="vue-devtools__anchor-btn vue-devtools__panel-content vue-devtools__inspector-button active" title="Toggle Component Inspector"><svg data-v-640ec535="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 1.1em; width: 1.1em; opacity: 1; color: rgb(0, 220, 130);"><g data-v-640ec535="" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle data-v-640ec535="" cx="12" cy="12" r=".5" fill="currentColor"></circle><path data-v-640ec535="" d="M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2"></path></g></svg></div></div><div data-v-399f5059="" data-v-640ec535="" class="vue-devtools-frame" style="z-index: -1; pointer-events: auto; width: min(80vw, -48px + 100vw); height: min(60vh, -48px + 100vh); left: 0px; transform: translate(-50%, 0px); bottom: 0px; display: none;"><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize--horizontal" style="top: 0px;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize--horizontal" style="bottom: 0px; display: none;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize--vertical" style="left: 0px;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize--vertical" style="right: 0px;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize-corner" style="top: 0px; left: 0px; cursor: nwse-resize;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize-corner" style="top: 0px; right: 0px; cursor: nesw-resize;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize-corner" style="bottom: 0px; left: 0px; cursor: nesw-resize; display: none;"></div><div data-v-399f5059="" class="vue-devtools-resize vue-devtools-resize-corner" style="bottom: 0px; right: 0px; cursor: nwse-resize; display: none;"></div></div></div></div></body></html>
