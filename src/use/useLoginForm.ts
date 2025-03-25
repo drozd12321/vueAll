@@ -2,8 +2,10 @@ import { watch } from "vue";
 import { useField, useForm } from "vee-validate";
 import { computed } from "vue";
 import * as yup from "yup";
+import { useStore } from "vuex/types/index.js";
 
 export default function useLoginForm() {
+  const store = useStore();
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -33,6 +35,7 @@ export default function useLoginForm() {
 
   const onSubmit = handleSubmit((val) => {
     console.log(val);
+    store.dispatch("");
     resetForm();
   });
   const istomanyAttemots = computed<boolean>(() => submitCount.value >= 3);
