@@ -13,7 +13,6 @@
           @blur="eBlur"
         />
       </div>
-
       <div class="inpdiv">
         <label class="label" for="email">Password:</label>
         <input
@@ -24,53 +23,28 @@
           @blur="pBlur"
         />
       </div>
-
       <button type="submit" :disabled="isSubmitting || istomanyAttemots">
         Войти
       </button>
-      <div class="span" v-if="istomanyAttemots">Слишком часто</div>
+      <div class="span" v-if="istomanyAttemots">
+        Слишком часто пытаетесь войти
+      </div>
     </div>
   </form>
 </template>
 <script setup lang="ts">
-import { watch } from "vue";
-import { useField, useForm } from "vee-validate";
-import { computed } from "vue";
-import * as yup from "yup";
+import useLoginForm from "../use/useLoginForm";
 const {
-  value: email,
-  errorMessage: eError,
-  handleBlur: eBlur,
-} = useField(
-  "email",
-  yup
-    .string()
-    .trim()
-    .required("Введите email")
-    .email("Введите корректный email")
-);
-const {
-  value: password,
-  errorMessage: pError,
-  handleBlur: pBlur,
-} = useField(
-  "password",
-  yup.string().trim().required("Введите пароль").min(6, "Минимум 6 ")
-);
-const { handleSubmit, isSubmitting, submitCount } = useForm();
-const onSubmit = handleSubmit((val) => {
-  console.log(val);
-  email.value = "";
-  password.value = "";
-});
-const istomanyAttemots = computed(() => submitCount.value >= 3);
-watch(istomanyAttemots, (val) => {
-  if (val) {
-    setTimeout(() => {
-      submitCount.value = 0;
-    }, 5000);
-  }
-});
+  email,
+  eError,
+  eBlur,
+  password,
+  pBlur,
+  pError,
+  onSubmit,
+  isSubmitting,
+  istomanyAttemots,
+} = useLoginForm();
 </script>
 <style scoped>
 .span {
