@@ -1,37 +1,39 @@
-import type { ActionContext } from "vuex/types/index.js";
+import type { ActionContext } from "vuex";
 
-interface State {
-  token: null | string;
+interface AuthState {
+  token: string | null;
 }
 
 export default {
   namespaced: true,
-  state(): State {
-    return {
-      token: null,
-    };
-  },
+  state: (): AuthState => ({
+    token: null,
+  }),
   mutations: {
-    setToken(state: State, token: string) {
+    setToken(state: AuthState, token: string) {
       state.token = token;
       localStorage.setItem("jwtToken", token);
     },
-    removeToken(state: State) {
+    removeToken(state: AuthState) {
       state.token = null;
       localStorage.removeItem("jwtToken");
     },
   },
   getters: {
-    getToken(state: State) {
+    getToken(state: AuthState) {
       return state.token;
     },
-    isAuth(state: State) {
+    isAuth(state: AuthState) {
       return !!state.token;
     },
   },
   actions: {
-    async login({ commit }: ActionContext<State, State>) {
-      commit("setToken", "Test Token");
+    async login(
+      { commit }: ActionContext<AuthState, AuthState>,
+      payload: { email: string; password: string }
+    ) {
+      console.log(payload);
+      commit("setToken", "fake-token1");
     },
   },
 };

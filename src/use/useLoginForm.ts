@@ -2,7 +2,7 @@ import { watch } from "vue";
 import { useField, useForm } from "vee-validate";
 import { computed } from "vue";
 import * as yup from "yup";
-import { useStore } from "vuex/types/index.js";
+import { useStore } from "vuex";
 
 export default function useLoginForm() {
   const store = useStore();
@@ -33,9 +33,9 @@ export default function useLoginForm() {
     handleBlur: pBlur,
   } = useField<string>("password");
 
-  const onSubmit = handleSubmit((val) => {
+  const onSubmit = handleSubmit(async (val) => {
     console.log(val);
-    store.dispatch("");
+    await store.dispatch("auth/login", val);
     resetForm();
   });
   const istomanyAttemots = computed<boolean>(() => submitCount.value >= 3);
