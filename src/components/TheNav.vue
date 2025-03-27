@@ -21,6 +21,9 @@ const exitOB = () => {
 };
 </script>
 <style scoped>
+span {
+  cursor: pointer;
+}
 .navbar {
   display: grid;
   grid-template-areas: "h3 cont";

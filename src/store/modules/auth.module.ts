@@ -32,14 +32,17 @@ export default {
       { commit }: ActionContext<AuthState, AuthState>,
       payload: { email: string; password: string }
     ) {
-      const VITE_APP_FB_KEY = "AIzaSyCvBUx7V7uOoayQzhnveFjk4Z8sWEqitW8";
-      // console.log(payload, VITE_APP_FB_KEY);
-      // const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${VITE_APP_FB_KEY}`;
-      // const { data } = await axios.post(url, {
-      //   ...payload,
-      //   returnSecureToken: true,
-      // });
-      // console.log(data);
+      try {
+        const VITE_APP_FB_KEY = "AIzaSyCvBUx7V7uOoayQzhnveFjk4Z8sWEqitW8";
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${VITE_APP_FB_KEY}`;
+        const { data } = await axios.post(url, {
+          ...payload,
+          returnSecureToken: true,
+        });
+        commit("setToken", data.idToken);
+      } catch (error) {
+        console.log("error:", error);
+      }
     },
   },
 };
