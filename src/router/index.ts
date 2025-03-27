@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import AppHelp from "@/views/AppHelp.vue";
 import AppMsg from "@/views/AppMsg.vue";
 import Auth from "@/views/Auth.vue";
+import store from "@/store/store";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -47,8 +48,15 @@ const router = createRouter({
   linkActiveClass: "active",
   linkExactActiveClass: "active",
 });
+
 router.beforeEach((to, from, next) => {
   const auth = to.meta.auth;
-  if(auth )
+  if (auth && store.getters["auth/isAuth"]) {
+    next();
+  } else if (auth && !store.getters["auth/isAuth"]) {
+    next("/auth?=message");
+  } else {
+    next();
+  }
 });
 export default router;

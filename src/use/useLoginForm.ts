@@ -3,8 +3,10 @@ import { useField, useForm } from "vee-validate";
 import { computed } from "vue";
 import * as yup from "yup";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default function useLoginForm() {
+  const router = useRouter();
   const store = useStore();
   const validationSchema = yup.object({
     email: yup
@@ -36,6 +38,7 @@ export default function useLoginForm() {
   const onSubmit = handleSubmit(async (val) => {
     console.log(val);
     await store.dispatch("auth/login", val);
+    router.push("/");
     resetForm();
   });
   const istomanyAttemots = computed<boolean>(() => submitCount.value >= 3);

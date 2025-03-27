@@ -7,7 +7,7 @@ interface AuthState {
 export default {
   namespaced: true,
   state: (): AuthState => ({
-    token: null,
+    token: localStorage.getItem("jwtToken"),
   }),
   mutations: {
     setToken(state: AuthState, token: string) {
@@ -33,7 +33,7 @@ export default {
       payload: { email: string; password: string }
     ) {
       console.log(payload);
-      commit("setToken", "fake-token1");
+      commit("setToken", "fake-token1232");
     },
   },
 };

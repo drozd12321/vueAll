@@ -7,11 +7,19 @@
       <span class="three"
         ><RouterLink to="/message">Сообщения</RouterLink></span
       >
-      <span class="foo">Выход</span>
+      <span class="foo" @click="exitOB">Выход</span>
     </div>
   </header>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+import store from "@/store/store";
+import router from "@/router";
+const exitOB = () => {
+  store.commit("auth/removeToken");
+  router.push("/auth");
+};
+</script>
 <style scoped>
 .navbar {
   display: grid;
