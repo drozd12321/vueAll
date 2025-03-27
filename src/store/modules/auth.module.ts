@@ -1,5 +1,5 @@
 import type { ActionContext } from "vuex";
-
+import axios from "axios";
 interface AuthState {
   token: string | null;
 }
@@ -32,8 +32,14 @@ export default {
       { commit }: ActionContext<AuthState, AuthState>,
       payload: { email: string; password: string }
     ) {
-      console.log(payload);
-      commit("setToken", "fake-token1232");
+      const VITE_APP_FB_KEY = "AIzaSyCvBUx7V7uOoayQzhnveFjk4Z8sWEqitW8";
+      // console.log(payload, VITE_APP_FB_KEY);
+      // const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${VITE_APP_FB_KEY}`;
+      // const { data } = await axios.post(url, {
+      //   ...payload,
+      //   returnSecureToken: true,
+      // });
+      // console.log(data);
     },
   },
 };
