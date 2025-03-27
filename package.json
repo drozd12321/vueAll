@@ -11,8 +11,10 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@kouts/vue-modal": "^2.1.12",
     "axios": "^1.8.4",
     "vee-validate": "^4.15.0",
+    "vue-final-modal": "^4.5.5",
     "vue-router": "^4.5.0",
     "vuex": "^4.1.0",
     "yup": "^1.6.1"
