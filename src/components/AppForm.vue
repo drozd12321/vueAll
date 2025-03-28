@@ -1,5 +1,5 @@
 <template>
-  <form class="glavn" @submit.prevent="onSubmit">
+  <form class="glavn" @submit.prevent="emit('submit')">
     <div class="inf">
       <h2>Войти в систему</h2>
       <div class="inpdiv">
