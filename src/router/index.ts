@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
   if (auth && store.getters["auth/isAuth"]) {
     next();
   } else if (auth && !store.getters["auth/isAuth"]) {
-    next("/auth?=message");
+    next("/auth?message=messageAuth");
   } else {
     next();
   }

@@ -1,5 +1,6 @@
 import type { ActionContext } from "vuex";
 import axios from "axios";
+import useError from "@/utils/useError";
 interface AuthState {
   token: string | null;
 }
@@ -29,7 +30,7 @@ export default {
   },
   actions: {
     async login(
-      { commit }: ActionContext<AuthState, AuthState>,
+      { commit, dispatch }: ActionContext<AuthState, AuthState>,
       payload: { email: string; password: string }
     ) {
       try {
@@ -40,8 +41,33 @@ export default {
           returnSecureToken: true,
         });
         commit("setToken", data.idToken);
+        commit("deleteMessage", {}, { root: true });
       } catch (error) {
-        console.log("error:", error);
+        const axiosErr = error as {
+          response?: {
+            data?: {
+              error?: {
+                message?: string;
+              };
+            };
+          };
+        };
+        if (axiosErr?.response?.data?.error?.message) {
+          console.log(
+            "error:",
+            useError(axiosErr.response?.data.error.message)
+          );
+          dispatch(
+            "setMsg",
+            {
+              value: useError(axiosErr.response?.data.error.message),
+              type: "danger",
+            },
+            { root: true }
+          );
+        } else {
+          console.log("unknown");
+        }
       }
     },
   },
