@@ -4,6 +4,7 @@
     :class="{ 'custom-modal': true }"
     content-class="modal-content"
     overlay-class="modal-overlay"
+    @closed="clearMsg"
   >
     <div class="alert">
       <h2 class="h2" v-if="message.type === Title_Map.danger">Ошибка</h2>
@@ -38,7 +39,9 @@ const Title_Map = {
 };
 const ismessage = ref(false);
 const message = computed(() => store.getters.getMsg);
-const props = defineProps({});
+const clearMsg = () => {
+  store.commit("deleteMessage");
+};
 watch(
   () => message.value,
   (newMsg) => {
