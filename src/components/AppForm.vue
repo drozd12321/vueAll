@@ -42,10 +42,10 @@ const emit = defineEmits([
   "pblur",
 ]);
 const props = defineProps({
-  eError: Bollean,
-  pError: Bollean,
-  isSubmitting: Bollean,
-  istomanyAttemots: Bollean,
+  eError: Boolean,
+  pError: Boolean,
+  isSubmitting: Boolean,
+  istomanyAttemots: Boolean,
 });
 </script>
 <style scoped>
