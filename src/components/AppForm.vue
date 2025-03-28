@@ -9,7 +9,8 @@
           :class="['input', { invalid: eError }]"
           type="email"
           id="email"
-          @input="emit('update:email', $event.target.value)"
+          :value="emailVal"
+          @input="emit('update:emailVal', $event.target.value)"
           @blur="emit('eblur', $event)"
         />
       </div>
@@ -19,14 +20,15 @@
           :class="['input', { invalid: pError }]"
           type="password"
           id="password"
-          @input="emit('update:password', $event.target.value)"
+          :value="passwordVal"
+          @input="emit('update:passwordVal', $event.target.value)"
           @blur="emit('pblur', $event)"
         />
       </div>
       <button type="submit" :disabled="isSubmitting || istomanyAttemots">
         Войти
       </button>
-      <div class="span" v-if="istomanyAttemots">
+      <div class="span" v-if="istomanyAttemots && isSubmitting">
         Слишком часто пытаетесь войти
       </div>
     </div>
@@ -35,15 +37,17 @@
 <script setup>
 import { defineProps, defineEmits } from "vue";
 const emit = defineEmits([
-  "update:email",
-  "update:password",
+  "update:emailVal",
+  "update:passwordVal",
   "submit",
   "eblur",
   "pblur",
 ]);
 const props = defineProps({
-  eError: Boolean,
-  pError: Boolean,
+  emailVal: String,
+  passwordVal: String,
+  eError: String,
+  pError: String,
   isSubmitting: Boolean,
   istomanyAttemots: Boolean,
 });

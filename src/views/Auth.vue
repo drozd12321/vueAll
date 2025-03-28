@@ -1,7 +1,7 @@
 <template>
   <AppForm
-    @v-model:email="email"
-    @v-model:password="password"
+    v-model:emailVal="email"
+    v-model:passwordVal="password"
     @submit="onSubmit"
     @eblur="eBlur"
     @pblur="pBlur"
