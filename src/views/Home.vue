@@ -1,24 +1,27 @@
 <template>
-  <div class="glavn">
-    <div class="inf">
-      <h2>Заявки</h2>
-      <div>hh</div>
-      <div>fff</div>
-    </div>
-  </div>
+  <AppPage title="Список заявок">
+    <template #header>
+      <button>Создать</button>
+    </template>
+    <Request />
+  </AppPage>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppPage from "@/components/AppPage.vue";
+import Request from "@/components/Request.vue";
+</script>
 <style scoped>
-.glavn {
-  background-color: white;
-  margin: 1rem auto;
-  width: 80%;
+button {
+  width: 130px;
+  font-size: 17px;
+  border: none;
   padding: 10px;
-  border-radius: 6px;
+  background-color: rgba(12, 113, 228, 0.795);
+  color: rgb(0, 0, 0);
+  border-radius: 7px;
+  transition: all 0.4s ease;
 }
-.inf {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+button:hover {
+  background-color: rgb(30, 90, 170);
 }
 </style>
