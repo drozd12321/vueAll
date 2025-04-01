@@ -36,7 +36,6 @@ export default function useLoginForm() {
   } = useField<string>("password");
 
   const onSubmit = handleSubmit(async (val) => {
-    console.log(val);
     await store.dispatch("auth/login", val);
     router.push("/");
     resetForm();

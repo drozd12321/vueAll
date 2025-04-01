@@ -103,8 +103,8 @@ input {
   font-size: 14px;
 }
 .glavn {
-  border: 3px solid rgba(0, 225, 255, 0.63);
-  background-color: rgb(36, 38, 59);
+  border: 3px solid rgb(247, 247, 247);
+  background-color: rgba(0, 0, 0, 0.445);
   margin: 1rem auto;
   width: 80%;
   padding: 10px;
@@ -124,7 +124,7 @@ input {
   width: 600px;
   height: 300px;
   border-radius: 3px;
-  border: 3px solid rgba(0, 225, 255, 0.63);
+  border: 3px solid rgb(255, 255, 255);
 }
 h2 {
   background-color: transparent;

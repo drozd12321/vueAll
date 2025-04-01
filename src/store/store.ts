@@ -1,6 +1,8 @@
 import { createLogger, createStore } from "vuex";
 import authModule from "./modules/auth.module";
+
 import type { ActionContext } from "vuex/types/index.js";
+import modalCreate from "./modules/modalCreate";
 interface Message {
   value: string;
   type: string;
@@ -8,16 +10,19 @@ interface Message {
 interface RootST {
   token: string | null;
   message: Message;
+  textCreate: string;
 }
 export const store = createStore({
   plugins: [createLogger()],
   modules: {
     auth: authModule,
+    modal: modalCreate,
   },
   state(): RootST {
     return {
       token: null,
       message: { value: "", type: "" },
+      textCreate: "",
     };
   },
   mutations: {
@@ -33,9 +38,6 @@ export const store = createStore({
   actions: {
     setMsg({ commit }: ActionContext<RootST, RootST>, msg: Message) {
       commit("setMessage", msg);
-      // setTimeout(() => {
-      //   commit("deleteMessage");
-      // }, 5000);
     },
   },
   getters: {

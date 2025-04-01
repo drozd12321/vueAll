@@ -55,6 +55,8 @@ watch(
 <style>
 .p {
   text-align: center;
+  margin: 0;
+  padding: 3px;
 }
 .h2 {
   text-align: center;
