@@ -5,7 +5,9 @@
     </template>
     <Request :request="['fff', 'hhh']" />
     <teleport to="body">
-      <AppModal> </AppModal>
+      <AppModal>
+        <RequestModal />
+      </AppModal>
     </teleport>
   </AppPage>
 </template>
@@ -13,6 +15,7 @@
 import AppModal from "@/components/AppModal.vue";
 import AppPage from "@/components/AppPage.vue";
 import Request from "@/components/request/Request.vue";
+import RequestModal from "@/components/request/RequestModal.vue";
 import { ref } from "vue";
 import { useStore } from "vuex";
 const store = useStore();

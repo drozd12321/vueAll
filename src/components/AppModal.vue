@@ -46,6 +46,7 @@ watch(
   border-radius: 10px;
   width: 60%;
   text-align: center;
+  padding: 10px;
 }
 .modaloverl {
   background-color: rgb(10, 10, 10);
