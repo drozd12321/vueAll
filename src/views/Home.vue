@@ -3,7 +3,7 @@
     <template #header>
       <button @click="modal">Создать</button>
     </template>
-    <Request :request="['fff', 'hhh']" />
+    <Request :request="request" />
     <teleport to="body">
       <AppModal>
         <RequestModal />
@@ -16,6 +16,7 @@ import AppModal from "@/components/AppModal.vue";
 import AppPage from "@/components/AppPage.vue";
 import Request from "@/components/request/Request.vue";
 import RequestModal from "@/components/request/RequestModal.vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const modal = () => {
@@ -23,6 +24,9 @@ const modal = () => {
     isOpen: true,
   });
 };
+const request = computed(() => {
+  store.getters["modal/getrequest"];
+});
 </script>
 <style scoped>
 button {

@@ -9,12 +9,14 @@ interface ItextCreate {
 }
 interface RootModal {
   textCreate: ItextCreate;
+  request: Array<string>;
 }
 export default {
   namespaced: true,
   state(): RootModal {
     return {
       textCreate: { fio: "", status: "", sum: 0, tlf: "", isOpen: false },
+      request: [],
     };
   },
   mutations: {
@@ -43,6 +45,9 @@ export default {
   getters: {
     getTextCreate(state: RootModal): ItextCreate {
       return state.textCreate;
+    },
+    getrequest(state: RootModal): Array<string> {
+      return state.request;
     },
   },
 };
