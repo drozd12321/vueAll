@@ -20,6 +20,7 @@ export default {
   mutations: {
     setTextCreate(state: RootModal, payload: ItextCreate) {
       state.textCreate = { ...payload };
+      console.log(state.textCreate);
     },
     deleteTextCreate(state: RootModal) {
       state.textCreate = {

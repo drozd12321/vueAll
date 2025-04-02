@@ -2,7 +2,6 @@
   <RequestForm
     @fBlur="fBlur"
     @sBlur="sBlur"
-    @stBlur="stBlur"
     @tBlur="tBlur"
     @submit="onSubmit"
     :fError="fError"
@@ -27,7 +26,6 @@ const {
   onSubmit,
   sBlur,
   sError,
-  stBlur,
   stError,
   status,
   sum,

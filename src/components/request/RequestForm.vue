@@ -3,30 +3,42 @@
     <div class="divinp">
       <label for="fio">ФИО</label>
       <input
+        :class="{ inp: true, invalid: fError }"
         type="text"
         id="fio"
         :value="fioval"
-        @input="emit('update:fioval', $event.target.value)"
+        @input="
+          emit('update:fioval', ($event.target as HTMLInputElement).value)
+        "
         @blur="emit('fBlur', $event)"
       />
     </div>
     <div class="divinp">
       <label for="tlf">Телефон</label>
       <input
+        :class="{ inp: true, invalid: tError }"
         type="text"
         id="tlf"
         :value="tlfval"
-        @input="emit('update:tlfval', $event.target.value)"
+        @input="
+          emit('update:tlfval', ($event.target as HTMLInputElement).value)
+        "
         @blur="emit('tBlur', $event)"
       />
     </div>
     <div class="divinp">
       <label for="sum">Сумма</label>
       <input
+        :class="{ inp: true, invalid: sError }"
         type="number"
         id="sum"
         :value="sumval"
-        @input="emit('update:sumval', $event.target.value)"
+        @input="
+          emit(
+            'update:sumval',
+            Number(($event.target as HTMLInputElement).value)
+          )
+        "
         @blur="emit('sBlur', $event)"
       />
     </div>
@@ -35,6 +47,7 @@
       <div class="radio">
         <div class="check">
           <input
+            :class="{ inp: true, invalid: stError }"
             type="radio"
             name="status"
             id="status1"
@@ -45,6 +58,7 @@
         </div>
         <div class="check">
           <input
+            :class="{ inp: true, invalid: stError }"
             type="radio"
             name="status"
             id="status2"
@@ -55,6 +69,7 @@
         </div>
         <div class="check">
           <input
+            :class="{ inp: true, invalid: stError }"
             type="radio"
             name="status"
             id="status3"
@@ -65,11 +80,11 @@
         </div>
       </div>
     </div>
-    <button type="submit">Создать</button>
+    <button type="submit" :disabled="!dis">Создать</button>
   </form>
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, computed } from "vue";
 const handleradio1 = (newValue: string) => {
   emit("update:statusval", newValue);
 };
@@ -77,7 +92,7 @@ const props = defineProps({
   fioval: String,
   statusval: String,
   tlfval: String,
-  sumval: String,
+  sumval: Number,
   isSubmitting: Boolean,
   fError: String,
   sError: String,
@@ -96,8 +111,16 @@ const emit = defineEmits([
   "stBlur",
   "tBlur",
 ]);
+const dis = computed(() => {
+  return (
+    !!props.statusval && !!props.sumval && !!props.tlfval && !!props.fioval
+  );
+});
 </script>
 <style scoped>
+.invalid {
+  border: 2px solid red;
+}
 .check {
   display: grid;
   grid-template-columns: 0.7fr 1.6fr;
@@ -135,7 +158,8 @@ button:hover {
 }
 button:disabled {
   cursor: not-allowed;
-  color: red;
+  background-color: rgb(119, 115, 115);
+  color: rgb(252, 252, 252);
   border: 3px solid rgba(252, 2, 2, 0.911);
 }
 .label {

@@ -16,10 +16,8 @@ import AppModal from "@/components/AppModal.vue";
 import AppPage from "@/components/AppPage.vue";
 import Request from "@/components/request/Request.vue";
 import RequestModal from "@/components/request/RequestModal.vue";
-import { ref } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
-const showModal = ref(false);
 const modal = () => {
   store.dispatch("modal/actionTextCreated", {
     isOpen: true,
