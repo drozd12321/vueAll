@@ -8,7 +8,8 @@ interface AuthState {
 export default {
   namespaced: true,
   state: (): AuthState => ({
-    token: localStorage.getItem("jwtToken"),
+    token: "ss",
+    // token: localStorage.getItem("jwtToken"),
   }),
   mutations: {
     setToken(state: AuthState, token: string) {
