@@ -48,6 +48,7 @@ export default function useModalForm() {
     console.log(fio);
     console.log(tlf);
     console.log(status);
+    resetForm();
   };
   return {
     fio,
