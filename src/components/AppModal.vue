@@ -30,6 +30,8 @@ watch(
     console.log("gg", newVal);
     if (newVal.isOpen) {
       modalValue.value = true;
+    } else {
+      modalValue.value = false;
     }
   },
   { deep: true }
