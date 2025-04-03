@@ -21,6 +21,12 @@ export default {
     deleteTextCreate(state: RootModal) {
       state.textCreate = useCreateRequst(initialState);
     },
+    deleteZavkaById(state: RootModal, payload: string) {
+      localStorage.setItem(
+        "request",
+        JSON.stringify(state.request.filter((req) => req.id !== payload))
+      );
+    },
     setRequst(state: RootModal, payload: ItextCreate) {
       state.request.push(useCreateRequst(payload));
       localStorage.setItem("request", JSON.stringify(state.request));

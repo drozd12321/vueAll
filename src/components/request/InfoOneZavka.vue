@@ -2,7 +2,7 @@
   <div class="inf"><RequestRow :one="getDataZavkaById" /></div>
   <div class="btn">
     <button>Изменить</button>
-    <button class="dlt">Удалить</button>
+    <button class="dlt" @click="deleteZavka">Удалить</button>
   </div>
 </template>
 <script setup lang="ts">
@@ -10,12 +10,18 @@ import getZavkaId from "@/utils/getZavkaId";
 import RequestRow from "./RequestRow.vue";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 const route = useRoute();
+const store = useStore();
+const zavkaId = route.params.id;
 const getDataZavkaById = computed(() => {
-  if (!Array.isArray(route.params.id)) {
-    return getZavkaId(route.params.id);
+  if (!Array.isArray(zavkaId)) {
+    return getZavkaId(zavkaId);
   }
 });
+const deleteZavka = () => {
+  store.commit("modal/deleteZavka", zavkaId);
+};
 </script>
 <style scoped>
 .btn {
