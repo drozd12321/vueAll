@@ -119,7 +119,7 @@ const dis = computed(() => {
 </script>
 <style scoped>
 .invalid {
-  border: 2px solid red;
+  border: 2px solid rgba(255, 5, 5, 0.795);
 }
 .check {
   display: grid;
@@ -160,7 +160,7 @@ button:disabled {
   cursor: not-allowed;
   background-color: rgb(119, 115, 115);
   color: rgb(252, 252, 252);
-  border: 3px solid rgba(252, 2, 2, 0.911);
+  border: 3px solid rgba(104, 103, 103, 0.911);
 }
 .label {
   grid-area: label;

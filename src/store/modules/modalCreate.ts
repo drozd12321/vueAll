@@ -9,7 +9,7 @@ interface ItextCreate {
 }
 interface RootModal {
   textCreate: ItextCreate;
-  request: Array<string>;
+  request: Array<ItextCreate>;
 }
 export default {
   namespaced: true,
@@ -22,7 +22,6 @@ export default {
   mutations: {
     setTextCreate(state: RootModal, payload: ItextCreate) {
       state.textCreate = { ...payload };
-      console.log(state.textCreate);
     },
     deleteTextCreate(state: RootModal) {
       state.textCreate = {
@@ -32,6 +31,11 @@ export default {
         tlf: "",
         isOpen: false,
       };
+    },
+    setRequst(state: RootModal, payload: ItextCreate) {
+      state.request.push({
+        ...payload,
+      });
     },
   },
   actions: {
@@ -46,7 +50,7 @@ export default {
     getTextCreate(state: RootModal): ItextCreate {
       return state.textCreate;
     },
-    getrequest(state: RootModal): Array<string> {
+    getrequest(state: RootModal): Array<ItextCreate> {
       return state.request;
     },
   },

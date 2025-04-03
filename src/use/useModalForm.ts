@@ -40,18 +40,17 @@ export default function useModalForm() {
     errorMessage: sError,
     handleBlur: sBlur,
   } = useField<number>("sum");
-  const { value: status, errorMessage: stError } = useField<number>("status");
-  const onSubmit = () => {
+  const { value: status, errorMessage: stError } = useField<string>("status");
+  const onSubmit = handleSubmit(async (val) => {
     console.log("Форма отправлена");
-    store.dispatch("modal/actionTextCreated", {
-      fio: fio,
-      status: status,
-      sum: sum,
-      tlf: tlf,
-      isOpen: false,
-    });
+    store.dispatch("modal/actionTextCreated", val);
     resetForm();
-  };
+  });
+  //  const onSubmit = handleSubmit(async (val) => {
+  //    await store.dispatch("auth/login", val);
+  //    router.push("/");
+  //    resetForm();
+  //  });
   return {
     fio,
     fError,
