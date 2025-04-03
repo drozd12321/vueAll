@@ -4,6 +4,7 @@
       <button @click="modal">Создать</button>
     </template>
     <Request :request="request" />
+    <RouterView></RouterView>
     <teleport to="body">
       <AppModal>
         <RequestModal />

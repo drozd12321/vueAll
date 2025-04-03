@@ -4,6 +4,7 @@ import AppHelp from "@/views/AppHelp.vue";
 import AppMsg from "@/views/AppMsg.vue";
 import Auth from "@/views/Auth.vue";
 import store from "@/store/store";
+import InfoOneZavka from "@/components/request/InfoOneZavka.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,12 @@ const router = createRouter({
         layout: "Main",
         auth: true,
       },
+      children: [
+        {
+          path: "user/:id",
+          component: InfoOneZavka,
+        },
+      ],
     },
     {
       path: "/help",
