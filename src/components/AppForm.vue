@@ -84,7 +84,7 @@ button:disabled {
 }
 .label {
   grid-area: label;
-  width: 20px;
+  width: 60px;
 }
 .input {
   grid-area: input;

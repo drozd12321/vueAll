@@ -21,6 +21,7 @@ const router = createRouter({
         {
           path: "user/:id",
           component: InfoOneZavka,
+          name: "zavka",
         },
       ],
     },

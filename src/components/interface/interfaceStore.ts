@@ -4,6 +4,7 @@ export interface ItextCreate {
   sum?: number;
   status?: string;
   isOpen?: boolean;
+  id?: string;
 }
 export interface RootModal {
   textCreate: ItextCreate;

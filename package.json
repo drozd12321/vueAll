@@ -17,6 +17,7 @@
     "vee-validate": "^4.15.0",
     "vue-final-modal": "^4.5.5",
     "vue-router": "^4.5.0",
+    "vue-unicons": "^3.3.1",
     "vuex": "^4.1.0",
     "yup": "^1.6.1"
   },

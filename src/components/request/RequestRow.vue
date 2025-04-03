@@ -1,24 +1,30 @@
 <template>
-  <div class="one">{{ one.fio }}</div>
+  <div class="one" @click="goToZavka">{{ one.fio }}</div>
   <div class="two">{{ one.tlf }}</div>
   <div class="three">{{ one.status }}</div>
   <div class="foo">{{ one.sum }}</div>
 </template>
 <script setup lang="ts">
-import type { PropType } from "vue";
-
 export interface RequerestI {
   fio: string;
   tlf: string;
   status: string;
   sum: number;
+  id: string;
 }
+import type { PropType } from "vue";
+import { useRouter } from "vue-router";
 const props = defineProps({
   one: {
     type: Object as PropType<RequerestI>,
     required: true,
   },
 });
+
+const router = useRouter();
+const goToZavka = () => {
+  router.push(`user/${props.one.id}`);
+};
 </script>
 <style scoped>
 .table > div {
@@ -28,6 +34,7 @@ const props = defineProps({
 .one {
   cursor: pointer;
   transition: all ease 0.4s;
+  text-align: center;
 }
 .one:hover {
   transform: translateY(-10px);

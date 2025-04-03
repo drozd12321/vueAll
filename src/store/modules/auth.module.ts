@@ -6,8 +6,8 @@ import type { AuthState } from "@/components/interface/interfaceStore";
 export default {
   namespaced: true,
   state: (): AuthState => ({
-    token: "ss",
-    // token: localStorage.getItem("jwtToken"),
+    // token: "ss",
+    token: localStorage.getItem("jwtToken"),
   }),
   mutations: {
     setToken(state: AuthState, token: string) {

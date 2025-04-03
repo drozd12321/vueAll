@@ -1,9 +1,9 @@
 <template>
-  <AppPage title="Список заявок">
+  <AppPage @gotoHome="gotoHome" title="Список заявок">
     <template #header>
       <button @click="modal">Создать</button>
     </template>
-    <Request :request="request" />
+    <Request v-if="!isZavkaComp" :request="request" />
     <RouterView></RouterView>
     <teleport to="body">
       <AppModal>
@@ -19,16 +19,22 @@ import Request from "@/components/request/Request.vue";
 import RequestModal from "@/components/request/RequestModal.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { useRoute, useRouter } from "vue-router";
 const store = useStore();
+const router = useRouter();
 const modal = () => {
   store.dispatch("modal/actionTextCreated", {
     isOpen: true,
   });
 };
 const request = computed(() => {
-  console.log(store.getters["modal/getrequest"]);
   return store.getters["modal/getrequest"];
 });
+const route = useRoute();
+const isZavkaComp = computed(() => route.path.includes("user"));
+const gotoHome = () => {
+  router.push("/");
+};
 </script>
 <style scoped>
 button {

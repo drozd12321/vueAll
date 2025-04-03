@@ -11,7 +11,7 @@ export default {
   state(): RootModal {
     return {
       textCreate: useCreateRequst(initialState),
-      request: [],
+      request: JSON.parse(localStorage.getItem("request") || "[]"),
     };
   },
   mutations: {
@@ -23,6 +23,7 @@ export default {
     },
     setRequst(state: RootModal, payload: ItextCreate) {
       state.request.push(useCreateRequst(payload));
+      localStorage.setItem("request", JSON.stringify(state.request));
     },
   },
   actions: {
@@ -46,5 +47,12 @@ export default {
     getrequest(state: RootModal): Array<ItextCreate> {
       return state.request;
     },
+    getrequestById:
+      (state: RootModal) =>
+      (id: string): ItextCreate | undefined => {
+        console.log(id);
+        console.log(state.request);
+        return state.request.find((req) => req.id === id);
+      },
   },
 };
