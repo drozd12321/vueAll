@@ -27,7 +27,6 @@ const clearModal = () => {
 watch(
   ModalCreate,
   (newVal) => {
-    console.log("gg", newVal);
     if (newVal.isOpen) {
       modalValue.value = true;
     } else {

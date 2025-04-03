@@ -43,7 +43,8 @@ export default function useModalForm() {
   const { value: status, errorMessage: stError } = useField<string>("status");
   const onSubmit = handleSubmit(async (val) => {
     console.log("Форма отправлена");
-    store.dispatch("modal/actionTextCreated", val);
+    await store.dispatch("modal/actionTextCreated", val);
+    await store.dispatch("modal/actionSetRequest", val);
     resetForm();
   });
   //  const onSubmit = handleSubmit(async (val) => {

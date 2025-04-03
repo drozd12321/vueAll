@@ -45,6 +45,12 @@ export default {
     ) {
       commit("setTextCreate", payload);
     },
+    actionSetRequest(
+      { commit }: ActionContext<RootModal, RootModal>,
+      payload: ItextCreate
+    ) {
+      commit("setRequst", payload);
+    },
   },
   getters: {
     getTextCreate(state: RootModal): ItextCreate {
