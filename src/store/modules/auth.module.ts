@@ -1,9 +1,7 @@
-import type { ActionContext } from "vuex";
+import type { ActionContext } from "vuex/types/index.d.ts";
 import axios from "axios";
 import useError from "@/utils/useError";
-interface AuthState {
-  token: string | null;
-}
+import type { AuthState } from "@/components/interface/interfaceStore";
 
 export default {
   namespaced: true,

@@ -1,17 +1,9 @@
 import { createLogger, createStore } from "vuex";
 import authModule from "./modules/auth.module";
-
 import type { ActionContext } from "vuex/types/index.js";
 import modalCreate from "./modules/modalCreate";
-interface Message {
-  value: string;
-  type: string;
-}
-interface RootST {
-  token: string | null;
-  message: Message;
-  textCreate: string;
-}
+import type { RootST } from "@/components/interface/interfaceStore";
+import type { Message } from "@/components/interface/interfaceStore";
 export const store = createStore({
   plugins: [createLogger()],
   modules: {
@@ -23,6 +15,7 @@ export const store = createStore({
       token: null,
       message: { value: "", type: "" },
       textCreate: "",
+      request: [],
     };
   },
   mutations: {

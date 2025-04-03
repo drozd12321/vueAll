@@ -1,21 +1,16 @@
-import { createStore } from "vuex";
+import type {
+  ItextCreate,
+  RootModal,
+} from "@/components/interface/interfaceStore";
+import useCreateRequst from "@/utils/useCreateRequst";
 import type { ActionContext } from "vuex/types/index.js";
-interface ItextCreate {
-  fio?: string;
-  tlf?: string;
-  sum?: number;
-  status?: string;
-  isOpen?: boolean;
-}
-interface RootModal {
-  textCreate: ItextCreate;
-  request: Array<ItextCreate>;
-}
+
+const initialState = { fio: "", status: "", sum: 0, tlf: "", isOpen: false };
 export default {
   namespaced: true,
   state(): RootModal {
     return {
-      textCreate: { fio: "", status: "", sum: 0, tlf: "", isOpen: false },
+      textCreate: useCreateRequst(initialState),
       request: [],
     };
   },
@@ -24,18 +19,10 @@ export default {
       state.textCreate = { ...payload };
     },
     deleteTextCreate(state: RootModal) {
-      state.textCreate = {
-        fio: "",
-        status: "",
-        sum: 0,
-        tlf: "",
-        isOpen: false,
-      };
+      state.textCreate = useCreateRequst(initialState);
     },
     setRequst(state: RootModal, payload: ItextCreate) {
-      state.request.push({
-        ...payload,
-      });
+      state.request.push(useCreateRequst(payload));
     },
   },
   actions: {

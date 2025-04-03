@@ -1,15 +1,22 @@
 <template>
-  <div class="one">{{ one }}</div>
-  <div class="two">2</div>
-  <div class="three">3</div>
-  <div class="foo">4</div>
-  <div class="five">5</div>
-  <div class="six">6</div>
+  <div class="one">{{ one.fio }}</div>
+  <div class="two">{{ one.tlf }}</div>
+  <div class="three">{{ one.status }}</div>
+  <div class="foo">{{ one.sum }}</div>
 </template>
 <script setup lang="ts">
+import type { PropType } from "vue";
+
+export interface RequerestI {
+  fio: string;
+  tlf: string;
+  status: string;
+  sum: number;
+}
 const props = defineProps({
   one: {
-    type: String,
+    type: Object as PropType<RequerestI>,
+    required: true,
   },
 });
 </script>
@@ -17,22 +24,12 @@ const props = defineProps({
 .table > div {
   text-align: center;
 }
-/* .one {
-  grid-area: one;
+
+.one {
+  cursor: pointer;
+  transition: all ease 0.4s;
 }
-.two {
-  grid-area: two;
+.one:hover {
+  transform: translateY(-10px);
 }
-.three {
-  grid-area: three;
-}
-.foo {
-  grid-area: foo;
-}
-.five {
-  grid-area: five;
-}
-.six {
-  grid-area: six;
-} */
 </style>

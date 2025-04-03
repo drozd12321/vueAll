@@ -25,7 +25,8 @@ const modal = () => {
   });
 };
 const request = computed(() => {
-  store.getters["modal/getrequest"];
+  console.log(store.getters["modal/getrequest"]);
+  return store.getters["modal/getrequest"];
 });
 </script>
 <style scoped>
