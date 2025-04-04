@@ -1,7 +1,6 @@
 <template>
   <div class="inf"><RequestRow :one="getDataZavkaById" /></div>
   <div class="btn">
-    <button @click="modal">Изменить</button>
     <button class="dlt" @click="deleteZavka">Удалить</button>
   </div>
 </template>
@@ -20,17 +19,9 @@ const getDataZavkaById = computed(() => {
     return getZavkaId(store, zavkaId);
   }
 });
-const zavkaData = getDataZavkaById.value;
 const deleteZavka = () => {
   store.dispatch("modal/actiondeletZavka", zavkaId);
   router.push("/");
-};
-const modal = () => {
-  store.dispatch("modal/actionTextCreated", {
-    ...zavkaData,
-    isOpen: true,
-    isEdit: true,
-  });
 };
 </script>
 <style scoped>

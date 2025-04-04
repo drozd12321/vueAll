@@ -5,7 +5,6 @@
     </template>
     <Request v-if="!isZavkaComp" />
     <RouterView></RouterView>
-    <div v-if="EditTrue">{{ EditTrue.fio }}</div>
     <teleport to="body">
       <AppModal>
         <RequestModal />
