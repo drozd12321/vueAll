@@ -16,7 +16,7 @@ export default {
   },
   mutations: {
     setTextCreate(state: RootModal, payload: ItextCreate) {
-      state.textCreate = { ...payload };
+      state.textCreate = useCreateRequst(payload);
     },
     deleteTextCreate(state: RootModal) {
       state.textCreate = useCreateRequst(initialState);
