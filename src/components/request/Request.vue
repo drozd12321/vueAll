@@ -8,18 +8,23 @@
       <h4>Сумма</h4>
     </div>
     <div v-for="(req, i) in request" :key="i" class="row">
-      <RequestRow :one="req" />
+      <RequestRow v-if="req" :one="req" />
+      <div v-else>Нету такой заявки</div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import type { PropType } from "vue";
+import { computed, type PropType } from "vue";
 import RequestRow, { type RequerestI } from "./RequestRow.vue";
-
-const props = defineProps({
-  request: {
-    type: Array as PropType<RequerestI[]>,
-  },
+import { useStore } from "vuex";
+const store = useStore();
+// const props = defineProps({
+//   request: {
+//     type: Array as PropType<RequerestI[]>,
+//   },
+// });
+const request = computed(() => {
+  return store.getters["modal/getrequest"];
 });
 </script>
 <style scoped>

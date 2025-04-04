@@ -9,18 +9,20 @@
 import getZavkaId from "@/utils/getZavkaId";
 import RequestRow from "./RequestRow.vue";
 import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 const route = useRoute();
+const router = useRouter();
 const store = useStore();
 const zavkaId = route.params.id;
 const getDataZavkaById = computed(() => {
-  if (!Array.isArray(zavkaId)) {
-    return getZavkaId(zavkaId);
+  if (!Array.isArray(zavkaId) && zavkaId) {
+    return getZavkaId(store, zavkaId);
   }
 });
 const deleteZavka = () => {
-  store.commit("modal/deleteZavka", zavkaId);
+  store.dispatch("modal/actiondeletZavka", zavkaId);
+  router.push("/");
 };
 </script>
 <style scoped>

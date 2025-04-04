@@ -1,8 +1,8 @@
 <template>
-  <div class="one" @click="goToZavka">{{ one.fio }}</div>
-  <div class="two">{{ one.tlf }}</div>
-  <div class="three">{{ one.status }}</div>
-  <div class="foo">{{ one.sum }}</div>
+  <div v-if="one" class="one" @click="goToZavka">{{ one.fio }}</div>
+  <div v-if="one" class="two">{{ one.tlf }}</div>
+  <div v-if="one" class="three">{{ one.status }}</div>
+  <div v-if="one" class="foo">{{ one.sum }}</div>
 </template>
 <script setup lang="ts">
 export interface RequerestI {

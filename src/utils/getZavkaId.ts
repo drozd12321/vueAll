@@ -1,8 +1,4 @@
-import { useStore } from "vuex";
-
-export default function getZavkaId(id: string) {
-  const store = useStore();
-  console.log("id", id);
+export default function getZavkaId(store: any, id: string) {
   const getrequestById = store.getters["modal/getrequestById"];
   console.log(getrequestById(id));
 

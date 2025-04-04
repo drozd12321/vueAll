@@ -3,7 +3,7 @@
     <template #header>
       <button @click="modal">Создать</button>
     </template>
-    <Request v-if="!isZavkaComp" :request="request" />
+    <Request v-if="!isZavkaComp" />
     <RouterView></RouterView>
     <teleport to="body">
       <AppModal>

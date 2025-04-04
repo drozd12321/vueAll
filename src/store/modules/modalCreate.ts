@@ -22,10 +22,8 @@ export default {
       state.textCreate = useCreateRequst(initialState);
     },
     deleteZavkaById(state: RootModal, payload: string) {
-      localStorage.setItem(
-        "request",
-        JSON.stringify(state.request.filter((req) => req.id !== payload))
-      );
+      state.request = state.request.filter((req) => req.id !== payload);
+      localStorage.setItem("request", JSON.stringify(state.request));
     },
     setRequst(state: RootModal, payload: ItextCreate) {
       state.request.push(useCreateRequst(payload));
@@ -44,6 +42,16 @@ export default {
       payload: ItextCreate
     ) {
       commit("setRequst", payload);
+    },
+    actiondeletZavka(
+      { commit }: ActionContext<RootModal, RootModal>,
+      payload: string
+    ) {
+      try {
+        commit("deleteZavkaById", payload);
+      } catch (error) {
+        console.error("Ош");
+      }
     },
   },
   getters: {
