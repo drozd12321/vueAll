@@ -23,7 +23,7 @@ const props = defineProps({
 
 const router = useRouter();
 const goToZavka = () => {
-  router.push(`user/${props.one.id}`);
+  router.push(`/user/${props.one.id}`);
 };
 </script>
 <style scoped>

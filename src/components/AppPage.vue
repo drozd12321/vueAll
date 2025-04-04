@@ -29,6 +29,7 @@ const props = defineProps({
 }
 h2 {
   cursor: pointer;
+  text-align: center;
 }
 .head {
   display: flex;

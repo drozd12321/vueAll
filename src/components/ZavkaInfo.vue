@@ -1,5 +1,5 @@
 <template>
-  <AppPage @gotoHome="gotoHome" title="Список заявок">
+  <AppPage title="Список заявок">
     <template #header>
       <button @click="modal">Создать</button>
     </template>
@@ -19,16 +19,13 @@ import RequestModal from "@/components/request/RequestModal.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import getZavkaId from "@/utils/getZavkaId";
 const store = useStore();
-const router = useRouter();
 const route = useRoute();
 const modal = () => {
   store.dispatch("modal/actionTextCreated", {
     isOpen: true,
   });
 };
-
 const isZavkaComp = computed(() => route.path.includes("user"));
 </script>
 <style scoped>

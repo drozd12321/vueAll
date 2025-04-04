@@ -14,8 +14,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, type PropType } from "vue";
-import RequestRow, { type RequerestI } from "./RequestRow.vue";
+import { computed } from "vue";
+import RequestRow from "./RequestRow.vue";
 import { useStore } from "vuex";
 const store = useStore();
 const request = computed(() => {
