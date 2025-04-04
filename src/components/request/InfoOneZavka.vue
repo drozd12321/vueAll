@@ -1,8 +1,11 @@
 <template>
-  <div class="inf"><RequestRow :one="getDataZavkaById" /></div>
-  <div class="btn">
-    <button class="dlt" @click="deleteZavka">Удалить</button>
-  </div>
+  <AppPage @gotoHome="gotoHome" :title="`Заявка  ${zavkaId}`">
+    <div class="inf"><RequestRow :one="getDataZavkaById" /></div>
+    <div class="btn">
+      <button @click="gotoUpdate">Изменить</button>
+      <button class="dlt" @click="deleteZavka">Удалить</button>
+    </div>
+  </AppPage>
 </template>
 <script setup lang="ts">
 import getZavkaId from "@/utils/getZavkaId";
@@ -10,6 +13,7 @@ import RequestRow from "./RequestRow.vue";
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
+import AppPage from "../AppPage.vue";
 const route = useRoute();
 const router = useRouter();
 const store = useStore();
@@ -21,6 +25,12 @@ const getDataZavkaById = computed(() => {
 });
 const deleteZavka = () => {
   store.dispatch("modal/actiondeletZavka", zavkaId);
+  router.push("/");
+};
+const gotoUpdate = () => {
+  router.push(`/user/${zavkaId}/update`);
+};
+const gotoHome = () => {
   router.push("/");
 };
 </script>

@@ -5,6 +5,8 @@ import AppMsg from "@/views/AppMsg.vue";
 import Auth from "@/views/Auth.vue";
 import store from "@/store/store";
 import InfoOneZavka from "@/components/request/InfoOneZavka.vue";
+import UpdateModal from "@/components/UpdateModal.vue";
+import ZavkaInfo from "@/components/ZavkaInfo.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -19,10 +21,16 @@ const router = createRouter({
       },
       children: [
         {
+          path: "",
+          component: ZavkaInfo,
+          name: "zavkainfo",
+        },
+        {
           path: "user/:id",
           component: InfoOneZavka,
           name: "zavka",
         },
+        { path: "user/:id/update", component: UpdateModal },
       ],
     },
     {
