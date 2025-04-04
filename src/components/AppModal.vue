@@ -20,6 +20,7 @@ import { useStore } from "vuex";
 const modalValue = ref(false);
 const store = useStore();
 const ModalCreate = computed(() => store.getters["modal/getTextCreate"]);
+
 const clearModal = () => {
   store.commit("modal/deleteTextCreate");
   modalValue.value = false;
@@ -27,7 +28,7 @@ const clearModal = () => {
 watch(
   ModalCreate,
   (newVal) => {
-    if (newVal.isOpen) {
+    if (newVal && newVal.isOpen) {
       modalValue.value = true;
     } else {
       modalValue.value = false;

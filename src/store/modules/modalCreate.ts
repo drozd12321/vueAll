@@ -64,8 +64,6 @@ export default {
     getrequestById:
       (state: RootModal) =>
       (id: string): ItextCreate | undefined => {
-        console.log(id);
-        console.log(state.request);
         return state.request.find((req) => req.id === id);
       },
   },

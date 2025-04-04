@@ -5,6 +5,7 @@
     </template>
     <Request v-if="!isZavkaComp" />
     <RouterView></RouterView>
+    <div v-if="EditTrue">{{ EditTrue.fio }}</div>
     <teleport to="body">
       <AppModal>
         <RequestModal />
@@ -20,17 +21,23 @@ import RequestModal from "@/components/request/RequestModal.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
+import getZavkaId from "@/utils/getZavkaId";
 const store = useStore();
 const router = useRouter();
+const route = useRoute();
 const modal = () => {
   store.dispatch("modal/actionTextCreated", {
     isOpen: true,
   });
 };
-const request = computed(() => {
-  return store.getters["modal/getrequest"];
+
+const EditTrue = computed(() => {
+  if (route.params && route.params.id) {
+    console.log("f");
+    return getZavkaId(store, route.params.id[0]);
+  }
 });
-const route = useRoute();
+
 const isZavkaComp = computed(() => route.path.includes("user"));
 const gotoHome = () => {
   router.push("/");

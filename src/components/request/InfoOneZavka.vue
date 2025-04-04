@@ -20,14 +20,16 @@ const getDataZavkaById = computed(() => {
     return getZavkaId(store, zavkaId);
   }
 });
+const zavkaData = getDataZavkaById.value;
 const deleteZavka = () => {
   store.dispatch("modal/actiondeletZavka", zavkaId);
   router.push("/");
 };
 const modal = () => {
   store.dispatch("modal/actionTextCreated", {
-    ...getDataZavkaById,
+    ...zavkaData,
     isOpen: true,
+    isEdit: true,
   });
 };
 </script>

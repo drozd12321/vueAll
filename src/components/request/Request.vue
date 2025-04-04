@@ -18,11 +18,6 @@ import { computed, type PropType } from "vue";
 import RequestRow, { type RequerestI } from "./RequestRow.vue";
 import { useStore } from "vuex";
 const store = useStore();
-// const props = defineProps({
-//   request: {
-//     type: Array as PropType<RequerestI[]>,
-//   },
-// });
 const request = computed(() => {
   return store.getters["modal/getrequest"];
 });
