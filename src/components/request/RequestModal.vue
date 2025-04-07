@@ -14,6 +14,7 @@
     v-model:sumval="sum"
     v-model:tlfval="tlf"
     btnText="Создать"
+    :btn="true"
   />
 </template>
 <script setup lang="ts">

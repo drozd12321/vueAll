@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" :disabled="!dis">{{ btnText }}</button>
+    <button v-if="btn" type="submit" :disabled="!dis">{{ btnText }}</button>
   </form>
 </template>
 <script setup lang="ts">
@@ -102,6 +102,7 @@ const props = defineProps({
   stError: String,
   tError: String,
   btnText: String,
+  btn: Boolean,
 });
 
 const emit = defineEmits([

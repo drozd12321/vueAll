@@ -14,9 +14,8 @@
       :sError="sError"
       :fError="fError"
       :stError="stError"
-      btnText="Изменить"
+      :btn="false"
     />
-    {{ getDataZavkaById }}
   </AppPage>
 </template>
 <script setup lang="ts">
@@ -41,14 +40,13 @@ const gotoHome = () => {
   router.push("/");
 };
 const onSub = () => {
-  const data: ItextCreate extends Event = {
-    fio: getDataZavkaById.value.fio,
-    tlf: getDataZavkaById.value.tlf,
-    sum: getDataZavkaById.value.sum,
-    status: getDataZavkaById.value.status,
-  };
   if (getDataZavkaById) {
-    onSubmit(data);
+    onSubmit({
+      fio: getDataZavkaById.value.fio,
+      tlf: getDataZavkaById.value.tlf,
+      sum: getDataZavkaById.value.sum,
+      status: getDataZavkaById.value.status,
+    });
   }
 };
 const {
