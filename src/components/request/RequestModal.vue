@@ -13,6 +13,7 @@
     v-model:statusval="status"
     v-model:sumval="sum"
     v-model:tlfval="tlf"
+    btnText="Создать"
   />
 </template>
 <script setup lang="ts">

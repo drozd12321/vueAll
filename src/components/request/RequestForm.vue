@@ -52,6 +52,7 @@
             name="status"
             id="status1"
             value="Оплачено"
+            :checked="statusval === 'Оплачено'"
             @change="handleradio1('Оплачено')"
           />
           <label for="status1">Оплачено</label>
@@ -63,6 +64,7 @@
             name="status"
             id="status2"
             value="Ожидание"
+            :checked="statusval === 'Ожидание'"
             @change="handleradio1('Ожидание')"
           />
           <label for="status2">Ожидание</label>
@@ -74,13 +76,14 @@
             name="status"
             id="status3"
             value="Неизвестно"
+            :checked="statusval === 'Неизвестно'"
             @change="handleradio1('Неизвестно')"
           />
           <label for="status3">Неизвестно</label>
         </div>
       </div>
     </div>
-    <button type="submit" :disabled="!dis">Создать</button>
+    <button type="submit" :disabled="!dis">{{ btnText }}</button>
   </form>
 </template>
 <script setup lang="ts">
@@ -98,6 +101,7 @@ const props = defineProps({
   sError: String,
   stError: String,
   tError: String,
+  btnText: String,
 });
 
 const emit = defineEmits([

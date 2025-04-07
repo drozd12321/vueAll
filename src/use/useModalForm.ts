@@ -1,3 +1,4 @@
+import type { ItextCreate } from "@/components/interface/interfaceStore";
 import { useField, useForm } from "vee-validate";
 import { useStore } from "vuex";
 import * as yup from "yup";
@@ -41,8 +42,8 @@ export default function useModalForm() {
     handleBlur: sBlur,
   } = useField<number>("sum");
   const { value: status, errorMessage: stError } = useField<string>("status");
-  const onSubmit = handleSubmit(async (val) => {
-    console.log("Форма отправлена");
+  const onSubmit = handleSubmit(async (val: ItextCreate) => {
+    console.log("Форма отправлена", val);
     await store.dispatch("modal/actionTextCreated", val);
     await store.dispatch("modal/actionSetRequest", val);
     resetForm();
